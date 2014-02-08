@@ -1,51 +1,51 @@
 #include <gtest/gtest.h>
-#include <algorithme/algorithme.hpp>
+#include <algorithme/containers.hpp>
 
 #include <string>
 
-TEST(Minimal,SortString)
+TEST(Containers,SortString)
 {
 	std::string s = "abcdefgh";
 	algorithme::sort(s);
 }
 
-TEST(Minimal,SortVector)
+TEST(Containers,SortVector)
 {
 	std::vector<int> v = {3,4,5,6};
 	algorithme::sort(v);
 }
 
-TEST(Minimal,MinElementString)
+TEST(Containers,MinElementString)
 {
 	std::string s = "abcdefgh";
 	algorithme::min_element(s);
 }
 
-TEST(Minimal,MaxElementString)
+TEST(Containers,MaxElementString)
 {
 	std::string s = "abcdefgh";
 	algorithme::max_element(s);
 }
 
-TEST(Minimal,MinMaxElementString)
+TEST(Containers,MinMaxElementString)
 {
 	std::string s = "abcdefgh";
 	algorithme::minmax_element(s);
 }
 
-TEST(Minimal,MinElementVector)
+TEST(Containers,MinElementVector)
 {
 	std::vector<int> v = {3,4,5,6};
 	algorithme::min_element(v);
 }
 
-TEST(Minimal,MaxElementVector)
+TEST(Containers,MaxElementVector)
 {
 	std::vector<int> v = {3,4,5,6};
 	algorithme::max_element(v);
 }
 
-TEST(Minimal,MinMaxElementVector)
+TEST(Containers,MinMaxElementVector)
 {
 	std::vector<int> v = {3,4,5,6};
 	algorithme::minmax_element(v);
