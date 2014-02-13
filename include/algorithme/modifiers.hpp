@@ -88,6 +88,8 @@ namespace algorithme
 		};
 	}
 
+	/** Creates a temporary that increases the provided value on deletion (RAII).
+	 */
 	template <typename T>
 	inline const impl::modifier<T, impl::addition_policy<T> > 
 	increase(T& v)
@@ -95,6 +97,8 @@ namespace algorithme
 		return impl::modifier<T, impl::addition_policy<T> >(v);
 	}
 
+	/** Creates a temporary that decreases the provided value on deletion (RAII).
+	 */
 	template <typename T>
 	inline const impl::modifier<T, impl::subtraction_policy<T> > 
 	decrease(T& v)
@@ -102,6 +106,8 @@ namespace algorithme
 		return impl::modifier<T, impl::subtraction_policy<T> >(v);
 	}
 
+	/** Creates a temporary that prints the provided value on deletion (RAII).
+	 */
 	template <typename T>
 	inline const impl::modifier<T, impl::printing_policy<T> > 
 	print(T& v)
