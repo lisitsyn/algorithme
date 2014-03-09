@@ -65,6 +65,12 @@ namespace algorithme
 			}
 		};
 
+		template <typename T>
+		inline impl::modifier<T, impl::addition_policy<T>> increase(T& v)
+		{
+			return impl::modifier<T, impl::addition_policy<T>>(v);
+		}
+
 		template <typename Type>
 		struct subtraction_policy : public modifying_policy<Type>
 		{
@@ -75,6 +81,12 @@ namespace algorithme
 				v -= p;
 			}
 		};
+		
+		template <typename T>
+		inline impl::modifier<T, impl::subtraction_policy<T>> decrease(T& v)
+		{
+			return impl::modifier<T, impl::subtraction_policy<T>>(v);
+		}
 
 		template <typename Type>
 		struct printing_policy
@@ -86,33 +98,36 @@ namespace algorithme
 				std::cout << p << v << std::endl;
 			}
 		};
+
+		template <typename T>
+		inline impl::modifier<T, impl::printing_policy<T>> print(T& v)
+		{
+			return impl::modifier<T, impl::printing_policy<T>>(v);
+		}
 	}
 
 	/** Creates a temporary that increases the provided value on deletion (RAII).
 	 */
 	template <typename T>
-	inline const impl::modifier<T, impl::addition_policy<T> > 
-	increase(T& v)
+	inline auto increase(T& v) -> decltype(impl::increase<T>(v))
 	{
-		return impl::modifier<T, impl::addition_policy<T> >(v);
+		return impl::increase<T>(v);
 	}
 
 	/** Creates a temporary that decreases the provided value on deletion (RAII).
 	 */
 	template <typename T>
-	inline const impl::modifier<T, impl::subtraction_policy<T> > 
-	decrease(T& v)
+	inline auto decrease(T& v) -> decltype(impl::decrease<T>(v))
 	{
-		return impl::modifier<T, impl::subtraction_policy<T> >(v);
+		return impl::decrease<T>(v);
 	}
 
 	/** Creates a temporary that prints the provided value on deletion (RAII).
 	 */
 	template <typename T>
-	inline const impl::modifier<T, impl::printing_policy<T> > 
-	print(T& v)
+	inline auto print(T& v) -> decltype(impl::print<T>(v))
 	{
-		return impl::modifier<T, impl::printing_policy<T> >(v);
+		return impl::print<T>(v);
 	}
 
 }

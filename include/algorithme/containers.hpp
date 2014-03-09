@@ -12,6 +12,15 @@
 namespace algorithme
 {
 
+	/** Applies function to all elements of the container.
+	 */
+	template <typename Container, typename Function>
+	inline void
+	for_each(Container& container, Function function)
+	{
+		std::for_each(std::begin(container), std::end(container), function);
+	}
+
 	/** Sorts elements in the container using the provided comparator (default 
 	 * comparator is operator< which results in ascending order).
 	 *
