@@ -19,5 +19,5 @@ or instead of
 
 some kind of magic
 
-	algorithme::increase(i).when(condition);
+	algorithme::conditional_do([&] () { i++ }).when(condition);
 
