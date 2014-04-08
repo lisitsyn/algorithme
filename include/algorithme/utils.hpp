@@ -10,19 +10,20 @@
 
 namespace algorithme
 {
-
-	template <typename T>
-	inline auto pointer(const T& v) -> decltype(&v)
+	namespace
 	{
-		return &v;
-	}
+		template <typename T>
+		inline auto pointer(const T& v) -> decltype(&v)
+		{
+			return &v;
+		}
 
-	template <typename T>
-	inline auto value(const T& v) -> decltype(*v)
-	{
-		return *v;
+		template <typename T>
+		inline auto value(const T& v) -> decltype(*v)
+		{
+			return *v;
+		}
 	}
-
 }
 
 #endif

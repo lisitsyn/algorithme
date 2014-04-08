@@ -11,37 +11,39 @@
 namespace algorithme
 {
 
-	/** Reads value from the provided stream (std::cin by default).
-	 * Modifies given value in-place!
-	 *
-	 * Being inlined gives no overhead.
-	 */
-	template <typename T, typename S=std::istream>
-	inline void read(T& variable, S& stream = std::cin)
+	namespace 
 	{
-		stream >> variable;
-	}
+		/** Reads value from the provided stream (std::cin by default).
+		 * Modifies given value in-place!
+		 *
+		 * Being inlined gives no overhead.
+		 */
+		template <typename T, typename S=std::istream>
+		inline void read(T& variable, S& stream = std::cin)
+		{
+			stream >> variable;
+		}
 
-	/** Writes value to the provided stream (std::cout by default).
-	 *
-	 * Being inlined gives no overhead.
-	 */
-	template <typename T, typename S=std::istream>
-	inline void write(const T& variable, S& stream = std::cout)
-	{
-		stream << variable;
+		/** Writes value to the provided stream (std::cout by default).
+		 *
+		 * Being inlined gives no overhead.
+		 */
+		template <typename T, typename S=std::istream>
+		inline void write(const T& variable, S& stream = std::cout)
+		{
+			stream << variable;
+		}
+		
+		/** Writes value as line to the provided stream (std::cout by default).
+		 *
+		 * Being inlined gives no overhead.
+		 */
+		template <typename T, typename S=std::istream>
+		inline void writeln(const T& variable, S& stream = std::cout)
+		{
+			stream << variable << std::endl;
+		}
 	}
-	
-	/** Writes value as line to the provided stream (std::cout by default).
-	 *
-	 * Being inlined gives no overhead.
-	 */
-	template <typename T, typename S=std::istream>
-	inline void writeln(const T& variable, S& stream = std::cout)
-	{
-		stream << variable << std::endl;
-	}
-
 }
 
 #endif
